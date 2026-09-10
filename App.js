@@ -1,19 +1,20 @@
-import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { PaperProvider } from "react-native-paper";
 import Home from "./src/views/Home";
 import Movies from "./src/views/Movies";
 
+const Tab = createBottomTabNavigator();
 
 export default function App() {
-
-  const Tab = createBottomTabNavigator();
   return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="HomeScreen" component={Home}></Tab.Screen>
-        <Tab.Screen name="MoviesScreen" component={Movies}></Tab.Screen>
-      </Tab.Navigator>
-    </NavigationContainer>
+    <PaperProvider>
+      <NavigationContainer>
+        <Tab.Navigator>
+          <Tab.Screen name="HomeScreen" component={Home} options={{ title: 'Início' }} />
+          <Tab.Screen name="MoviesScreen" component={Movies} options={{ title: 'Filmes' }} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </PaperProvider>
   );
 }
