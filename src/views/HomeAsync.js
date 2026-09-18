@@ -4,6 +4,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import { Card } from 'react-native-paper';
 import OpenDB from '../database/db';
 
+
 export default function Home({ navigation }) {
   const [produtos, setProdutos] = useState([]);
 
